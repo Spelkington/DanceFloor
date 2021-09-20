@@ -1,4 +1,6 @@
-import { makeHello } from "shared/module";
-import { KnitServer as Knit } from "@rbxts/knit";
+import { KnitServer as Knit, Component } from "@rbxts/knit";
+import { ServerScriptService } from "@rbxts/services";
 
-print(makeHello("main.server.ts"));
+Knit.Start();
+
+Component.Auto(ServerScriptService.TS.Components);

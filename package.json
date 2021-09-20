@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "@rbxts/knit": "0.0.21-alpha.0",
-    "@rbxts/roact": "^1.4.0-ts.2"
+    "@rbxts/roact": "^1.4.0-ts.2",
+    "@rbxts/services": "^1.2.0",
+    "io-serve": "^1.1.2"
   }
 }

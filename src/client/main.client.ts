@@ -1,4 +1,6 @@
-import { makeHello } from "shared/module";
-import { KnitClient as Knit } from "@rbxts/knit";
+import { KnitClient as Knit, Component } from "@rbxts/knit";
+import { StarterPlayer } from "@rbxts/services";
 
-print(makeHello("main.client.ts"));
+Knit.Start();
+
+Component.Auto(StarterPlayer.StarterPlayerScripts.TS.Components);
