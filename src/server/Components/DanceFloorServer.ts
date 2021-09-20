@@ -104,6 +104,9 @@ class DanceFloorServer implements Component.ComponentClass {
 		return;
 	}
 
+	/**
+	 * Clean up resources if the DanceFloor is destroyed.
+	 */
 	public Destroy() {
 		this.janitor.Destroy();
 	}
