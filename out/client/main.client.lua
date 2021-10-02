@@ -6,3 +6,5 @@ local Component = _knit.Component
 local StarterPlayer = TS.import(script, TS.getModule(script, "@rbxts", "services")).StarterPlayer
 Knit.Start()
 Component.Auto(StarterPlayer.StarterPlayerScripts.TS.Components)
+local ScoreService = Knit.GetService("ScoreService")
+local MinigameService = Knit.GetService("MinigameService")

@@ -1,5 +1,6 @@
-import { Component, Janitor, Timer } from "@rbxts/knit";
+import { KnitServer as Knit, Component, Janitor, Timer } from "@rbxts/knit";
 import { GetPlayerFromPart } from "shared/FunctionLibrary";
+const MinigameService = Knit.GetService("MinigameService");
 
 /**
  * Create the server-side logic for a Dance Floor instance that will track which
@@ -65,6 +66,9 @@ class DanceFloorServer implements Component.ComponentClass {
 		print("Player joined dancing:");
 		print(player);
 		this.currentPlayers.add(player);
+
+		MinigameService.StartMinigameForPlayer(player, "DanceMinigame");
+
 		return;
 	}
 
@@ -78,6 +82,9 @@ class DanceFloorServer implements Component.ComponentClass {
 	private onPlayerExit(player: Player) {
 		print("Player stopped dancing:");
 		print(player);
+
+		MinigameService.ExitMinigameForPlayer(player);
+
 		this.currentPlayers.delete(player);
 		return;
 	}

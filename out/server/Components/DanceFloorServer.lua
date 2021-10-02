@@ -1,9 +1,11 @@
 -- Compiled with roblox-ts v1.2.3
 local TS = require(game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include"):WaitForChild("RuntimeLib"))
 local _knit = TS.import(script, TS.getModule(script, "@rbxts", "knit").Knit)
+local Knit = _knit.KnitServer
 local Janitor = _knit.Janitor
 local Timer = _knit.Timer
 local GetPlayerFromPart = TS.import(script, game:GetService("ReplicatedStorage"), "TS", "FunctionLibrary").GetPlayerFromPart
+local MinigameService = Knit.GetService("MinigameService")
 --[[
 	*
 	* Create the server-side logic for a Dance Floor instance that will track which
@@ -56,11 +58,13 @@ do
 		-- ▼ Set.add ▼
 		self.currentPlayers[player] = true
 		-- ▲ Set.add ▲
+		MinigameService:StartMinigameForPlayer(player, "DanceMinigame")
 		return nil
 	end
 	function DanceFloorServer:onPlayerExit(player)
 		print("Player stopped dancing:")
 		print(player)
+		MinigameService:ExitMinigameForPlayer(player)
 		-- ▼ Set.delete ▼
 		self.currentPlayers[player] = nil
 		-- ▲ Set.delete ▲

@@ -2,7 +2,10 @@ interface ServerScriptService extends Instance {
 	TS: Folder & {
 		main: Script;
 		Components: Folder & {
-			Lava: ModuleScript;
+			DanceFloorServer: ModuleScript;
+		};
+		Services: Folder & {
+			PointsService: ModuleScript;
 		};
 	};
 }
